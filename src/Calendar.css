@@ -1,0 +1,9 @@
+.calendar {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+}
+
+.tileContent {
+    width: 30px;
+}

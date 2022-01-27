@@ -1,13 +1,8 @@
 import * as React from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import './RestaurantItem.css'
+import { addDays, differenceInCalendarDays } from 'date-fns';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import './Calendar.css'
 
 let restaurants = [
     {
@@ -132,53 +127,35 @@ let restaurants = [
     },
 ];
 
-function NewlineText(props) {
-    const text = props.text;
-    return <div className="newlineText">{text}</div>;
+const datesWithExtraContent = restaurants.map(r => {
+    let date = r.recent.split('.');
+    return(new Date(date[0], date[1]-1, date[2]));
+});
+
+function isSameDay(a, b) {
+  return differenceInCalendarDays(a, b) === 0;
 }
 
-function RestaurantItem() {
-    const [restaurant, setRestaurant] = React.useState([]);
+function MyCalendar() {
+    function tileContent({ date, view }) {
+        if (
+            view === 'month' &&
+            datesWithExtraContent.find((dDate) => isSameDay(dDate, date))
+        ) {
+            const d = `${date.getFullYear()}.${date.getMonth()+1}.${date.getDate()}`;
+            const restaurant = restaurants.find(r => r.recent === d);
+            return <img alt={restaurant.name} src={restaurant.imgUrl} className="tileContent" />;
+        }
+    }
 
-    React.useEffect(() => {
-        setRestaurant(restaurants);
-    }, []);
-
-    return (
-        <div className="restaurantsList">
-            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                <Divider variant="inset" component="li" />
-                {restaurant.map((res) => (
-                    <div className="restaurant" key={res.name}>
-                        <ListItem alignItems="flex-start">
-                            <ListItemButton>
-                                <ListItemAvatar>
-                                    <Avatar alt={res.name} src={res.imgUrl} />
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary={res.name}
-                                    secondary={
-                                        <React.Fragment>
-                                            <Typography
-                                                sx={{ display: 'inline' }}
-                                                component="span"
-                                                variant="body2"
-                                                color="text.primary"
-                                            >
-                                                {res.category.join(', ')}
-                                            </Typography>
-                                            <NewlineText text={` — ${res.menus.join(', ')} 등\n${res.recent}  ⭐${res.rate}`} />
-                                        </React.Fragment>
-                                    }
-                                />
-                            </ListItemButton>
-                        </ListItem>
-                        <Divider variant="inset" component="li" />
-                    </div>
-                ))}
-            </List>
+    return(
+        <div className="calendar">
+            <Calendar
+                calendarType="US"
+                tileContent={tileContent}
+            />
         </div>
     );
 }
 
-export default RestaurantItem;
+export default MyCalendar;
