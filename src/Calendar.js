@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { addDays, differenceInCalendarDays } from 'date-fns';
+import { differenceInCalendarDays } from 'date-fns';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Calendar.css'
