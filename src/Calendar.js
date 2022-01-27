@@ -127,8 +127,8 @@ let restaurants = [
     },
 ];
 
-const datesWithExtraContent = restaurants.map(r => {
-    let date = r.recent.split('.');
+const datesWithExtraContent = restaurants.map(res => {
+    let date = res.recent.split('.');
     return(new Date(date[0], date[1]-1, date[2]));
 });
 
