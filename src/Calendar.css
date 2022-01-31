@@ -1,9 +1,16 @@
 .calendar {
+    position: relative;
     display: flex;
     justify-content: center;
-    margin-top: 3vh;
+    transform: none !important;
+    perspective: none !important;
+    filter: none !important;
 }
 
 .tileContent {
     width: 30px;
+}
+
+.react-calendar__navigation {
+    margin-top: 100px;
 }

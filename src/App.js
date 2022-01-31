@@ -8,9 +8,9 @@ import ComboBox from './ComboBox'
 function App() {
   return (
     <div className="App">
+      <ComboBox />
       <Header />
       <Calendar />
-      <ComboBox />
       <RestaurantItem />
     </div>
   );

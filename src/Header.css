@@ -1,9 +1,14 @@
 .header {
+    position: fixed !important;
+    left: 50%;
+    transform: translate(-50%, 0);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    background-color: white;
     z-index: 100;
-    border-bottom: 1px solid #f9f9f9;
+    border-bottom: 1px solid #535353;
 }
 
 .header__logo {
