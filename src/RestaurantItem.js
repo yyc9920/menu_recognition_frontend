@@ -2,7 +2,7 @@ import * as React from 'react';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 
-import ContentBox from './ContentBox'
+import ContentBox from './ContentBox/ContentBox';
 import restaurants from './RestaurantList';
 import './RestaurantItem.css';
 
