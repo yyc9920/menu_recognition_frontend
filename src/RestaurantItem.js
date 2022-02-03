@@ -6,12 +6,29 @@ import ContentBox from './ContentBox/ContentBox';
 import restaurants from './RestaurantList';
 import './RestaurantItem.css';
 
-function RestaurantItem() {
+function RestaurantItem(props) {
     const [restaurant, setRestaurant] = React.useState([]);
 
     React.useEffect(() => {
         setRestaurant(restaurants);
     }, []);
+
+    if(props.sortType === "가나다순") {
+        console.log(props.sortType);
+        restaurant.sort(function(a, b) {
+            return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+        });
+    } else if(props.sortType === "평점순") {
+        console.log(props.sortType);
+        restaurant.sort(function(a, b) {
+            return b.rate - a.rate;
+        });
+    } else if(props.sortType === "방문 오래된 순") {
+        console.log(props.sortType);
+        restaurant.sort(function(a, b) {
+            return a.recent < b.recent ? -1 : a.recent > b.recent ? 1 : 0;
+        });
+    }
 
     return (
         <div className="restaurantsList">

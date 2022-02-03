@@ -6,12 +6,18 @@ import Header from './Header';
 import ComboBox from './ComboBox'
 
 function App() {
+  const [optionName, setOptionName] = React.useState([]);
+
+  const handleChange = (event) => {
+      setOptionName(event.target.value);
+  };
+
   return (
     <div className="App">
-      <ComboBox />
+      <ComboBox optionName={optionName} handleChange={handleChange} />
       <Header />
       <Calendar />
-      <RestaurantItem />
+      <RestaurantItem sortType={optionName} />
     </div>
   );
 }

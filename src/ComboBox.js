@@ -28,14 +28,9 @@ function getStyles(name, personName, theme) {
     };
 }
 
-function ComboBox() {
+function ComboBox(props) {
     const theme = useTheme();
-    const [optionName, setOptionName] = React.useState([]);
     const [open, setOpen] = React.useState(false);
-
-    const handleChange = (event) => {
-        setOptionName(event.target.value)
-    };
 
     const handleClose = () => {
         setOpen(false);
@@ -53,10 +48,10 @@ function ComboBox() {
                     labelId="demo-multiple-name-label"
                     id="demo-multiple-name"
                     open={open}
-                    value={optionName}
+                    value={props.optionName}
                     onClose={handleClose}
                     onOpen={handleOpen}
-                    onChange={handleChange}
+                    onChange={props.handleChange}
                     label="Option"
                     MenuProps={MenuProps}
                 >
@@ -64,7 +59,7 @@ function ComboBox() {
                         <MenuItem
                             key={name}
                             value={name}
-                            style={getStyles(name, optionName, theme)}
+                            style={getStyles(name, props.optionName, theme)}
                         >
                             {name}
                         </MenuItem>
