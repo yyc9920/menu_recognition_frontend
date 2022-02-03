@@ -9,7 +9,7 @@ let restaurants = [
     },
     {
         name: "던킨 도너츠",
-        imgUrl: "https://mblogthumb-phinf.pstatic.net/20160427_52/ppanppane_1461740975298hwnLF_PNG/%B4%F8%C5%B2%B7%CE%B0%ED_%282%29.png?type=w800",
+        imgUrl: "https://unifiedcenters.com/wp-content/uploads/2016/05/dunkin-donuts-logo-1150x1031.jpg",
         category: ["후식", "제과"],
         menus: ["크리스피 도넛", "커피"],
         recent: "2022.1.20",

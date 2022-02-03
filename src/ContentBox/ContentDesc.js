@@ -1,11 +1,7 @@
 import * as React from 'react';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
-
-function NewlineText(props) {
-    const text = props.text;
-    return <div className="newlineText">{text}</div>;
-}
+import AdditionalDesc from './AdditionalDesc'
 
 function ContentDesc(props) {
     return (
@@ -21,7 +17,13 @@ function ContentDesc(props) {
                     >
                         {props.category.join(', ')}
                     </Typography>
-                    <NewlineText text={` — ${props.menus.join(', ')} 등\n${props.recent}  ⭐${props.rate}`} />
+                    {/* <AdditionalDesc text={` — ${props.menus.join(', ')} 등\n${props.recent}  ⭐${props.rate}`} /> */}
+                    <AdditionalDesc
+                        level="full"
+                        menus={props.menus}
+                        recent={props.recent}
+                        rate={props.rate}
+                    />
                 </React.Fragment>
             }
         />
