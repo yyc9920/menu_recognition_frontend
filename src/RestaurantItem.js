@@ -26,7 +26,7 @@ function RestaurantItem(props) {
     } else if(props.sortType === "방문 오래된 순") {
         console.log(props.sortType);
         restaurant.sort(function(a, b) {
-            return a.recent < b.recent ? -1 : a.recent > b.recent ? 1 : 0;
+            return new Date(a.recent) - new Date(b.recent);
         });
     }
 
