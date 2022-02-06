@@ -2,6 +2,6 @@
 
 Built with React js.
 
-## Contributers
+## Contributors
 
-
+- @mark3924
