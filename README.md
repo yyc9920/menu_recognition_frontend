@@ -2,7 +2,7 @@
 
 Built with React js.
 
-For backend : (Link)[https://github.com/yyc9920/menu_recognition_backend]
+For backend : [(Link)](https://github.com/yyc9920/menu_recognition_backend)
 
 ## Contributors
 
